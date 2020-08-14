@@ -11,9 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SPCaptureView : UIView
-- (void)startRunning;
-- (void)stopRunning;
-- (void)flipCamera;
+- (void)showPreview;
+- (void)startRecord;
+- (void)stopRecord;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,18 +20,27 @@
     
     self.captureView = [[SPCaptureView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.captureView];
-    [self.captureView startRunning];
+    [self.captureView showPreview];
     
-    UIButton *flipBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 70, 60, 60)];
-    flipBtn.backgroundColor = [UIColor cyanColor];
-    [flipBtn setTitle:@"翻转" forState:UIControlStateNormal];
-    [flipBtn addTarget:self action:@selector(flipAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:flipBtn];
+    UIButton *startBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 70, 60, 60)];
+    startBtn.backgroundColor = [UIColor greenColor];
+    [startBtn setTitle:@"开始" forState:UIControlStateNormal];
+    [startBtn addTarget:self action:@selector(startBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:startBtn];
+    
+    UIButton *stopBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 150, 60, 60)];
+    stopBtn.backgroundColor = [UIColor redColor];
+    [stopBtn setTitle:@"停止" forState:UIControlStateNormal];
+    [stopBtn addTarget:self action:@selector(stopBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:stopBtn];
 }
 
-- (void)flipAction {
-    [self.captureView flipCamera];
+- (void)startBtnAction {
+    [self.captureView startRecord];
 }
 
+- (void)stopBtnAction {
+    [self.captureView stopRecord];
+}
 
 @end
