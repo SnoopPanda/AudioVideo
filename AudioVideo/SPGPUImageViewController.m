@@ -47,6 +47,12 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case 2:
+        {
+            SPVideoFilterViewController *vc = [[SPVideoFilterViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
             
         default:
             break;

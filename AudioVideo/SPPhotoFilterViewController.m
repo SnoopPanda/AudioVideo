@@ -42,8 +42,8 @@
     [self.camera startCameraCapture];
 
     //按钮拍照
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((self.view.bounds.size.width-80)*0.5, self.view.bounds.size.height-60, 80, 40)];
-    button.backgroundColor = [UIColor blueColor];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake((self.view.bounds.size.width-80)*0.5, self.view.bounds.size.height-120, 100, 50)];
+    button.backgroundColor = [UIColor cyanColor];
     [button setTitle:@"点击拍照" forState:UIControlStateNormal];
     
     [self.view addSubview:button];

@@ -8,6 +8,7 @@
 
 #import "SPVideoFilterViewController.h"
 #import "GPUImage.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface SPVideoFilterViewController ()
 
@@ -23,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     // 设置摄像头
     _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480 cameraPosition:AVCaptureDevicePositionBack];
     
@@ -55,70 +56,58 @@
     
     // 开始
     [_videoCamera startCameraCapture];
+    
+     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(30, 120, 100, 50)];
+     button.backgroundColor = [UIColor cyanColor];
+    [button setTitle:@"开始录制" forState:UIControlStateNormal];
+    [button setTitle:@"停止录制" forState:UIControlStateSelected];
+       
+     [self.view addSubview:button];
+    [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
-//// 开始录制
-//- (void)clickedControlButton:(void (^)(void))start end:(void (^)(void))end {
-//
-//
-//    start = ^(){
-//        NSLog(@"开始录制 -");
-//        self.videoCamera.audioEncodingTarget = self.movieWriter;
-//        [self.movieWriter startRecording];
-//
-//    };
-//
-//
-//    end = ^(){
-//        [self.filter removeTarget:self.movieWriter];
-//        self.videoCamera.audioEncodingTarget = nil;
-//        [self.movieWriter finishRecording];
-//        NSLog(@"Movie completed");
-//        // 写入相册
-//        [self writeToPhotoAlbum];
-//    };
-//
-//    [super clickedControlButton:start end:end];
-//
-//}
-
-
-
+- (void)btnAction:(UIButton *)btn {
+    if (btn.selected) {
+        [self.filter removeTarget:self.movieWriter];
+        self.videoCamera.audioEncodingTarget = nil;
+        [self.movieWriter finishRecording];
+        NSLog(@"Movie completed");
+        // 写入相册
+        [self writeToPhotoAlbum];
+    }else {
+        self.videoCamera.audioEncodingTarget = self.movieWriter;
+        [self.movieWriter startRecording];
+    }
+    btn.selected = !btn.selected;
+}
 
 /////////////////////////////////////////////////////////////////////
-//
-//- (void)writeToPhotoAlbum {
-//    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-//    if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:self.movieURL]) {
-//        [library writeVideoAtPathToSavedPhotosAlbum:self.movieURL completionBlock:^(NSURL *assetURL, NSError *error) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                if (error) {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误"
-//                                                                    message:@"保存失败"
-//                                                                   delegate:nil
-//                                                          cancelButtonTitle:@"OK"
-//                                                          otherButtonTitles:nil];
-//                    [alert show];
-//
-//                } else {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
-//                                                                    message:@"保存到相册成功"
-//                                                                   delegate:nil
-//                                                          cancelButtonTitle:@"OK"
-//                                                          otherButtonTitles:nil];
-//                    [alert show];
-//                }
-//            });
-//        }];
-//    }
-//}
-//
-//- (void)dealloc {
-//
-//    [self.filter removeTarget:self.movieWriter];
-//    self.videoCamera.audioEncodingTarget = nil;
-//    [self.movieWriter finishRecording];
-//}
+
+- (void)writeToPhotoAlbum {
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:self.movieURL]) {
+        [library writeVideoAtPathToSavedPhotosAlbum:self.movieURL completionBlock:^(NSURL *assetURL, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误"
+                                                                    message:@"保存失败"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                    message:@"保存到相册成功"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                }
+            });
+        }];
+    }
+}
 
 @end
