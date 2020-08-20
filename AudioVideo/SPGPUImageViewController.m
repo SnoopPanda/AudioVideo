@@ -1,27 +1,27 @@
 //
-//  ViewController.m
+//  SPGPUImageViewController.m
 //  AudioVideo
 //
-//  Created by 王杰 on 2020/8/12.
+//  Created by 王杰 on 2020/8/20.
 //  Copyright © 2020 raintai. All rights reserved.
 //
 
-#import "SPMenuViewController.h"
-#import "SPCaptureViewController.h"
 #import "SPGPUImageViewController.h"
+#import "SPImageFilterViewController.h"
+#import "SPPhotoFilterViewController.h"
+#import "SPVideoFilterViewController.h"
 
-@interface SPMenuViewController ()<UITableViewDataSource, UITableViewDelegate>
-
+@interface SPGPUImageViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *listView;
 @property (nonatomic, strong) NSArray *menuArr;
 @end
 
-@implementation SPMenuViewController
+@implementation SPGPUImageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.menuArr = @[@"录制/保存/编解码", @"GPUImage"];
+    self.menuArr = @[@"图片添加滤镜", @"相机添加滤镜", @"视频录制添加滤镜"];
     
     self.listView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.listView.dataSource = self;
@@ -37,14 +37,14 @@
     switch (indexPath.row) {
         case 0:
         {
-            SPCaptureViewController *vc = [SPCaptureViewController new];
-                   [self.navigationController pushViewController:vc animated:YES];
+            SPImageFilterViewController *vc = [[SPImageFilterViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 1:
         {
-            SPGPUImageViewController *vc = [SPGPUImageViewController new];
-                   [self.navigationController pushViewController:vc animated:YES];
+            SPPhotoFilterViewController *vc = [[SPPhotoFilterViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
@@ -70,6 +70,5 @@
     cell.textLabel.text = self.menuArr[indexPath.row];
     return cell;
 }
-
 
 @end

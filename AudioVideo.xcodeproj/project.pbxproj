@@ -26,6 +26,10 @@
 		A0140A3424ED16F100959793 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0140A3324ED16F100959793 /* QuartzCore.framework */; };
 		A0140A3624ED16FB00959793 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0140A3524ED16FB00959793 /* AVFoundation.framework */; };
 		A0140A3924ED17DB00959793 /* SPCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0140A3824ED17DB00959793 /* SPCaptureViewController.m */; };
+		A0140A6624EE64A600959793 /* SPImageFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0140A6024EE64A500959793 /* SPImageFilterViewController.m */; };
+		A0140A6724EE64A600959793 /* SPPhotoFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0140A6224EE64A500959793 /* SPPhotoFilterViewController.m */; };
+		A0140A6824EE64A600959793 /* SPVideoFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0140A6424EE64A600959793 /* SPVideoFilterViewController.m */; };
+		A0140A6B24EE653300959793 /* SPGPUImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0140A6A24EE653300959793 /* SPGPUImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +257,14 @@
 		A0140A3524ED16FB00959793 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A0140A3724ED17DB00959793 /* SPCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPCaptureViewController.h; sourceTree = "<group>"; };
 		A0140A3824ED17DB00959793 /* SPCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPCaptureViewController.m; sourceTree = "<group>"; };
+		A0140A6024EE64A500959793 /* SPImageFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPImageFilterViewController.m; sourceTree = "<group>"; };
+		A0140A6124EE64A500959793 /* SPImageFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPImageFilterViewController.h; sourceTree = "<group>"; };
+		A0140A6224EE64A500959793 /* SPPhotoFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPPhotoFilterViewController.m; sourceTree = "<group>"; };
+		A0140A6324EE64A600959793 /* SPVideoFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPVideoFilterViewController.h; sourceTree = "<group>"; };
+		A0140A6424EE64A600959793 /* SPVideoFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPVideoFilterViewController.m; sourceTree = "<group>"; };
+		A0140A6524EE64A600959793 /* SPPhotoFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPPhotoFilterViewController.h; sourceTree = "<group>"; };
+		A0140A6924EE653300959793 /* SPGPUImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPGPUImageViewController.h; sourceTree = "<group>"; };
+		A0140A6A24EE653300959793 /* SPGPUImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPGPUImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,8 +330,16 @@
 				A014073024E4373900959793 /* Capture */,
 				A014070124E4364900959793 /* SPMenuViewController.h */,
 				A014070224E4364900959793 /* SPMenuViewController.m */,
+				A0140A6924EE653300959793 /* SPGPUImageViewController.h */,
+				A0140A6A24EE653300959793 /* SPGPUImageViewController.m */,
 				A0140A3724ED17DB00959793 /* SPCaptureViewController.h */,
 				A0140A3824ED17DB00959793 /* SPCaptureViewController.m */,
+				A0140A6124EE64A500959793 /* SPImageFilterViewController.h */,
+				A0140A6024EE64A500959793 /* SPImageFilterViewController.m */,
+				A0140A6524EE64A600959793 /* SPPhotoFilterViewController.h */,
+				A0140A6224EE64A500959793 /* SPPhotoFilterViewController.m */,
+				A0140A6324EE64A600959793 /* SPVideoFilterViewController.h */,
+				A0140A6424EE64A600959793 /* SPVideoFilterViewController.m */,
 			);
 			path = AudioVideo;
 			sourceTree = "<group>";
@@ -733,11 +753,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0140A6724EE64A600959793 /* SPPhotoFilterViewController.m in Sources */,
 				A014074A24E4E40800959793 /* SPAudioEncoder.m in Sources */,
+				A0140A6B24EE653300959793 /* SPGPUImageViewController.m in Sources */,
 				A014070324E4364900959793 /* SPMenuViewController.m in Sources */,
+				A0140A6624EE64A600959793 /* SPImageFilterViewController.m in Sources */,
 				A014074724E4E09F00959793 /* SPVideoEncoder.m in Sources */,
 				A01406FD24E4364900959793 /* AppDelegate.m in Sources */,
 				A014073324E4375800959793 /* SPCaptureView.m in Sources */,
+				A0140A6824EE64A600959793 /* SPVideoFilterViewController.m in Sources */,
 				A0140A3924ED17DB00959793 /* SPCaptureViewController.m in Sources */,
 				A014070E24E4364900959793 /* main.m in Sources */,
 				A014074424E4E05200959793 /* SPFileWriter.m in Sources */,
